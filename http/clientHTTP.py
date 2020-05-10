@@ -11,14 +11,13 @@ json_data = json.dumps(foo)
 
 '''port=input("ingresa el puerto: ")
 host=input("ingresa el host")'''
-''
+
 conn = http.client.HTTPConnection('localhost',8080)
 
 print("GET\nHEAD\nPOST\nPUT\nDELETE\nCONNECT\nOPTIONS\nTRACE")
 
 while True:    
-    print("Escribe la peticion HTTP a enviar (en minusculas):\nctrl+c para salir")
-    peticion=input()
+    peticion=input("Escribe la peticion HTTP a enviar (en minusculas):\nctrl+c para salir\n")
     if peticion == 'get':
         conn.request("GET", "/")
         response = conn.getresponse()

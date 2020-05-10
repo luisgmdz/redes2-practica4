@@ -12,7 +12,6 @@ class GetHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-Type', 'text/plain; charset=utf-8')
         self.end_headers()
-        self.wfile.write(message.encode('utf-8'))
 
     def do_HEAD(self):
         parsed_path = parse.urlparse(self.path)
@@ -64,9 +63,6 @@ try:
     print('Starting server, use <Ctrl-C> to stop')
     server.serve_forever()
 
-except KeyboardInterrupt:
-    server.socket.close()
-    print("Cerrando servidor")
 except Exception as e:
     print(e)
     
